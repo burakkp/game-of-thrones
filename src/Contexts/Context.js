@@ -3,33 +3,31 @@ import React, { useState, useEffect, createContext } from "react";
 export const GOTContext = createContext({});
 
 export const GOTProvider = ({children}) => {
-    const [character, setCharacter] = useState([]);
-    const [page, setPage] = useState(1)
-
+    const [characters, setCharacters] = useState([]);
+    const [resetFilter, setResetFilter] = useState([]);
+    const [page, setPage] = useState(1);
+    const [name, setName] = useState();
+    const [checkPage, setCheckPage] = useState(false);
     
+
     useEffect(() => {
-        fetch('https://www.anapioficeandfire.com/api/characters?page='+ page +'&pageSize=10"')
-        .then((res) => res.json())
-        .then(data => {
-
+        
+        const getCharacters = async () => {
+            const res = await fetch('https://www.anapioficeandfire.com/api/characters?page='+ page +'&pageSize=10"');
+            const data = await res.json();
+            setCharacters(data);
+            setResetFilter(data);
             console.log(data)
+        }
 
-            data.forEach(item => {
-                
-                console.log(item.name)
-                
-            });
-            //setCharacter(data)
+        getCharacters(); 
+        
 
-        })
-        .catch((error) => {
-            console.error(error)
-        })     
-    }, [])
+    }, [page])
     
 
     return(
-        <GOTContext.Provider value={{character, page, setPage}}>
+        <GOTContext.Provider value={{characters, setCharacters, page, setPage, resetFilter, setResetFilter, name, setName, checkPage, setCheckPage}}>
             {children}
         </GOTContext.Provider>
     );
