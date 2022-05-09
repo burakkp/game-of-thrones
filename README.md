@@ -1,5 +1,6 @@
 # Game of Thrones Characters App
 
+[![INSERT YOUR GRAPHIC HERE](https://i.ibb.co/z41ZpHk/47388.jpg)]()
 ## The goal of the this app
 
 Build application to show characters from “Game of Thrones”.Your mission is to show characters from “Game of Thrones” in a table with several functionalities. The api to be used is from [https://anapioficeandfire.com/]. Documentation about the API is available there as well.
@@ -15,7 +16,11 @@ Try to minimize requests sent to the api. (back button not fetching data again)
 We want to get an idea about the age of the character. The current api does not havethis data available. You could guess this on first name by using [https://agify.io] api.
 Use a CSS framework of you choice to style your components. Build this application with React or Vue, whatever your preference is. Make sure the application is production ready and well documented.
 
-
+## Features
+- Pagination (max 10 on a page)
+- Filtering on different columns (text filter on the table)
+- Sort ordering on different columns
+- Adding Age custom  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
